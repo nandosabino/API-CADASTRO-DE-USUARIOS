@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { PrismaClient } from "@prisma/client";
+import { ObjectId } from "mongodb";
 
 const prisma = new PrismaClient();
 const app = express();
@@ -52,7 +53,7 @@ app.put("/usuarios/:id", async (req, res) => {
   try {
     const user = await prisma.user.update({
       where: {
-        id: parseInt(req.params.id, 10),
+        id: req.params.id,
       },
       data: {
         email: req.body.email,
@@ -68,18 +69,24 @@ app.put("/usuarios/:id", async (req, res) => {
   }
 });
 
-app.delete("/usuarios/:id", async (req, res) => {
+app.delete('/usuarios/:id', async (req, res) => {
+  const { id } = req.params;
+
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ error: "ID inválido." });
+  }
+
   try {
     await prisma.user.delete({
       where: {
-        id: parseInt(req.params.id, 10),
+        id: id, 
       },
     });
 
-    res.status(200).json({ message: "Usuário deletado com sucesso!" });
+    return res.status(200).json({ message: "Usuário deletado com sucesso." });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Erro ao deletar usuário" });
+    console.error("Erro ao deletar usuário:", error);
+    return res.status(500).json({ error: "Erro interno ao deletar o usuário." });
   }
 });
 
