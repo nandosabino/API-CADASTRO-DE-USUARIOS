@@ -1,31 +1,62 @@
 # 🧾 Cadastro de Usuários com Autenticação (Node.js + Express + MongoDB)
-Este projeto é uma API RESTful desenvolvida com **Node.js**, **Express** e **MongoDB**, que permite realizar operações de **cadastro**, **login com autenticação JWT**, e **CRUD de usuários**. Ideal para aplicações que exigem um sistema de gerenciamento seguro de usuários.
-## 🚀 Tecnologias Utilizadas
+
+Este projeto é uma **API RESTful** construída com **Node.js**, **Express** e **MongoDB**, com autenticação via **JWT**, criptografia de senhas com **Bcrypt**, e organização em camadas seguindo boas práticas de Clean Code.
+
+Ideal para aplicações que precisam de um sistema de cadastro de usuários com segurança e escalabilidade.
+
+---
+
+## 🚀 Tecnologias Utilizadas 
+
 - **Node.js**
 - **Express.js**
-- **MongoDB (via Mongoose)**
+- **MongoDB + Mongoose**
 - **JWT (JSON Web Token)**
-- **Postman (testes)**
+- **Bcrypt.js**
 - **Dotenv**
-- **Bcrypt.js** (hash de senha)
-- **Cors & Helmet** (segurança)
+- **Postman** (para testes)
+- **Cors / Helmet** (segurança)
+- **Git / GitHub**
+
+---
+
 ## 📦 Funcionalidades
 
-- [x] Cadastro de novos usuários
-- [x] Autenticação com JWT
-- [x] Login com validação de senha criptografada
-- [x] Listagem de usuários (rota protegida)
-- [x] Atualização de dados do usuário
-- [x] Exclusão de usuários
+- [x] Cadastro de usuários com validação
+- [x] Autenticação com token JWT
+- [x] Login seguro com senha criptografada
+- [x] Listagem de todos os usuários (rota protegida)
+- [x] Edição e exclusão de usuários
 - [x] Middleware de autenticação
-- [x] Boas práticas de Clean Code e organização em camadas
+- [x] Organização em camadas (MVC)
+- [x] Práticas de Clean Code
 
-## 🧠 Estrutura do Projeto
-📁 src
-┣ 📂controllers
-┣ 📂models
-┣ 📂routes
-┣ 📂middlewares
-┣ 📂config
-┣ 📜server.js
-┗ 📜.env
+---
+
+## 🔐 Rotas da API
+
+### 🔸 POST `/register`
+### 🔸 POST `/register`
+### 🔸 GET `/users`
+### 🔸 PUT /users/:id
+### 🔸 DELETE /users/:id
+
+<h1>▶️ Como Rodar o Projeto Localmente</h1>
+Siga os passos abaixo:
+
+# 1. Clone o repositório
+git clone https://github.com/nandosabino/API-CADASTRO-DE-USUARIOS
+# 2. Acesse a pasta do projeto
+cd backend-cadastro-usuarios
+
+# 3. Instale as dependências
+npm install
+
+# 4. Crie o arquivo .env
+touch .env
+
+---
+
+<h2>🔗 Front-End</h2>
+Este projeto possui uma interface em React, disponível no repositório:
+👉 <link>https://github.com/nandosabino/cadastro-usuarios
